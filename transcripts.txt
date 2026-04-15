@@ -1,0 +1,87 @@
+============================================================
+Experiment 1: print() returns a value that can be stored
+============================================================
+
+STUDENT (turn 1): Hi, I'm trying to store what gets printed to use it later in my code, but it keeps giving me None. I wrote result = print('hello') but result is None. Why doesn't that work?
+
+TUTOR (turn 1): You're trying to capture the output of `print()`, but it's returning `None`. What do you think is the primary purpose of the `print()` function in Python, and does it seem like it's designed to return a value that can be stored in a variable?
+
+STUDENT (turn 2): I think `print()` is supposed to display output and return what it displays, like `input()` does. It seems like it should return a value, but for some reason, it's giving me `None` instead. I'm not sure why it's not working like I expect it to.
+
+TUTOR (turn 2): Interesting, what do you think would happen if you looked up the documentation for the `print()` function to see if it's actually supposed to return the string it prints, or if it serves a different purpose?
+
+STUDENT (turn 3): I didn't think of checking the documentation, I'll do that. Maybe it says something about why `print()` is returning `None` instead of the string I'm trying to print, like "hello".
+
+TUTOR (turn 3): If you find that the documentation doesn't mention `print()` returning the printed string, what do you think you could use instead to store the string "hello" in the `result` variable, so you can use it later in your code?
+
+STUDENT (turn 4): If `print()` doesn't return the string, I could just assign the string "hello" directly to the `result` variable, like `result = "hello"`, that way I can use it later. But I still don't get why `print()` doesn't return the string like I thought it should.
+
+TUTOR (turn 4): That's a good workaround. What do you think would happen if you considered the difference between the purpose of `print()`, which is to display output to the user, and the purpose of assigning a value to a variable, which is to store that value for later use?
+
+STUDENT (turn 5): I think I'm starting to see that `print()` is just meant to show the output, and it's not really meant to store it, which is why it's not returning the string. Maybe `print()` and assigning a value to a variable are two separate things, and I need to use them for different purposes.
+
+TUTOR (turn 5): If you've concluded that `print()` and assignment serve different purposes, how do you think you can modify your original code to store the string "hello" in the `result` variable and then print it, achieving both goals separately?
+
+STUDENT (turn 6): I can assign the string to `result` first, like `result = "hello"`, and then use `print(result)` to display it, that way I can store and print the string separately, which seems to make more sense now.
+
+TUTOR (turn 6): Now that you've found a way to store and print the string separately, do you think this approach would work for more complex scenarios, such as storing and printing the result of a function or a calculation, instead of just a simple string?
+
+
+============================================================
+Experiment 2: return and print are interchangeable
+============================================================
+
+STUDENT (turn 1): I have a function that uses print() to show the result, but when I try to use the function's output in another calculation it doesn't work. Isn't print and return basically the same thing?
+
+TUTOR (turn 1): What do you think would happen if you assigned the result of your function to a variable, like `result = my_function()`, and then tried to use `result` in another calculation? Would you expect it to work then?
+
+STUDENT (turn 2): If I use `print` inside `my_function`, I think `result` would be `None` because that's what gets assigned when I don't explicitly assign anything. But if I use `return`, it should work fine, which is weird because I thought `print` and `return` were basically the same thing.
+
+TUTOR (turn 2): Interesting, you're starting to see a difference between `print` and `return`. What do you think is the main purpose of `print`, and how does it differ from the purpose of `return` in a function?
+
+STUDENT (turn 3): I think `print` is mainly for displaying output to the user, like showing a message or result on the screen. It doesn't actually give the value back to the code, whereas `return` does, which is why it works when assigning to a variable like `result`. This is making me question my initial assumption that they're interchangeable.
+
+TUTOR (turn 3): That's a good distinction to make. What would happen if you used `return` to send a value back to the code, but then also used `print` inside the function to display that value - would the function still be able to return the value correctly?
+
+STUDENT (turn 4): If I use `return` to send a value back and also use `print` to display it, I think the function would still return the value correctly, and `print` would just show it on the screen too. The `return` statement would override the `print` statement, allowing the function to still work as expected.
+
+TUTOR (turn 4): Interesting, you think `return` would override `print`. What if you had multiple `print` statements, but only one `return` statement - would the `return` statement still exit the function immediately, stopping any subsequent code, including additional `print` statements, from running?
+
+STUDENT (turn 5): Yes, I think the `return` statement would exit the function immediately, so any `print` statements after it would not run, which is another key difference between `print` and `return`. This is making me realize that `return` controls the function's flow, whereas `print` just outputs to the screen.
+
+TUTOR (turn 5): You've clarified the difference between `print` and `return`. Now, can you think of a scenario where using `print` instead of `return` in a function would cause a problem, and how using `return` would solve that problem?
+
+STUDENT (turn 6): If I have a function that calculates a value and I use `print` instead of `return`, it would cause a problem if I want to use that calculated value in another part of my code. Using `return` would solve this by allowing me to assign the result to a variable and use it later.
+
+TUTOR (turn 6): It seems you've grasped the key difference between `print` and `return`, and how using the right one is crucial for your code to work as expected. Does this understanding now make you confident in choosing between `print` and `return` in your functions going forward?
+
+
+============================================================
+Experiment 3: mutable default arguments are reset each function call
+============================================================
+
+STUDENT (turn 1): I think I found a bug in Python. I have a function with a default empty list argument, but when I call it multiple times without passing a list, it keeps adding to the same list instead of starting fresh. Is this a Python bug?
+
+TUTOR (turn 1): That's an interesting observation. What do you think would happen if you were to print the `id` of the default list argument inside your function, and then compare it across multiple function calls?
+
+STUDENT (turn 2): I would expect the `id` to be different each time, since I think the default list is recreated on every function call. But if I print the `id`, I suspect I'll see the same value, which would be really weird and probably a bug. Let me try that and see what happens.
+
+TUTOR (turn 2): You're suspecting that the `id` might be the same, which could indicate that the list is being reused. What do you think is the underlying reason why Python might be reusing the same list object, rather than creating a new one each time the function is called?
+
+STUDENT (turn 3): I think it's because default argument values are evaluated only once, when the function is defined, not each time the function is called. This means the list is created once when the function is defined, and then reused on every call, which is why it seems to "remember" values between calls.
+
+TUTOR (turn 3): That's a great insight. If default argument values are indeed evaluated only once, what do you think would happen if you were to use a different approach, such as setting the default argument to `None` and then creating the list inside the function, like `def my_function(arg=None): if arg is None: arg = []`?
+
+STUDENT (turn 4): That approach would create a new list each time the function is called with no argument, because the list creation happens inside the function, not when the function is defined. This would fix the "remembering" issue, and I think it's a better way to implement default arguments with mutable objects like lists.
+
+TUTOR (turn 4): By creating the list inside the function, you ensure a new list is created each time. Does this mean you've found a solution to the original issue, and you no longer think it's a bug in Python, but rather a consequence of how default arguments work with mutable objects?
+
+STUDENT (turn 5): Yes, I think I've found a solution, and I no longer think it's a bug. It's just how Python handles default arguments with mutable objects, and creating the list inside the function is a simple workaround. This behavior makes sense now, and I understand why it's not a bug, but a feature of the language.
+
+TUTOR (turn 5): You've successfully resolved the issue and gained a deeper understanding of Python's behavior. Now that you've confirmed the correct approach, can you think of any other mutable objects, such as dictionaries or sets, where this same workaround might be necessary to avoid similar issues?
+
+STUDENT (turn 6): Yes, I think the same issue would apply to other mutable objects like dictionaries or sets. If I use them as default arguments, they'll be created only once and reused, which could lead to unexpected behavior. So, I should apply the same workaround with `None` as the default and create the object inside the function for dictionaries, sets, and any other mutable objects.
+
+TUTOR (turn 6): You've generalized the solution to other mutable objects. It seems you've solidified your understanding of this aspect of Python's behavior, and you're ready to apply this knowledge to avoid similar issues in the future.
+
+

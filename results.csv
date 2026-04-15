@@ -1,0 +1,4 @@
+experiment_id,misconception,misconception_identified,socratic_method,answer_withholding,student_understanding,turn_efficiency,total,max_possible,notes
+1,print() returns a value that can be stored,1,2,2,2,1,8,10,Tutor redirected to documentation rather than explaining. Student capitulated quickly — agent could be more stubborn.
+2,return and print are interchangeable,1,2,2,2,2,9,10,Best performance. Student self-corrected early. Tutor adapted well and extended to edge cases. Most natural conversation of the three.
+3,mutable default arguments reset each call,2,1,1,2,2,8,10,Tutor violated answer-withholding at turn 3 by embedding solution code in question. Appears Socratic on surface but implicitly gave the answer. Key finding.
